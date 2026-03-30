@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stubenreinheit-System | 7-Tage Garantie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header com Timer */
+        .header {
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            padding: 15px 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .timer-box {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            color: #1a3a52;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge::before {
+            content: "✓";
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .quiz-section h2 {
+            color: #1a3a52;
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .question-text {
+            font-size: 18px;
+            color: #1a3a52;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            border-color: #ff6b35;
+            background: #fff5f0;
+            transform: translateX(5px);
+        }
+
+        .option-btn.selected {
+            border-color: #ff6b35;
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .results-section h2 {
+            color: #1a3a52;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .results-message {
+            background: #f0f8ff;
+            border-left: 4px solid #ff6b35;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .testimonials h3 {
+            text-align: center;
+            color: #1a3a52;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        .testimonial-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .testimonial-stars {
+            color: #ff6b35;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .testimonial-text {
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: #1a3a52;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.1);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .quiz-section,
+            .results-section {
+                padding: 20px 15px;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com Timer -->
+    <div class="header">
+        <div class="timer-container">
+            <span>⏱️ Flash Sale Endet In:</span>
+            <div class="timer-box" id="hours">00</div>
+            <span>:</span>
+            <div class="timer-box" id="minutes">00</div>
+            <span>:</span>
+            <div class="timer-box" id="seconds">00</div>
+            <button class="cta-button" style="background: white; color: #ff6b35; padding: 8px 16px; font-size: 14px; margin-left: 10px;">Jetzt 85% Rabatt</button>
+        </div>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🐕 Hör auf, Unfälle zu putzen!</h1>
+            <p class="subtitle">Das bewährte 7-Tage-System für stubenreine Hunde</p>
+            
+            <div class="trust-badges">
+                <div class="badge">12.000+ zufriedene Hundebesitzer</div>
+                <div class="badge">Ergebnisse in 3-4 Tagen</div>
+                <div class="badge">60-Tage Garantie</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Finde deine Lösung heraus</h2>
+
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+                <div class="question-text">1. Wie alt ist dein Hund?</div>
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('age', 'puppy')">🐶 Welpe (unter 6 Monaten)</button>
+                    <button class="option-btn" onclick="selectOption('age', 'young')">🐕 Junghund (6-12 Monate)</button>
+                    <button class="option-btn" onclick="selectOption('age', 'adult')">🦮 Erwachsener Hund (über 1 Jahr)</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+                <div class="question-text">2. Wie oft passieren "Unfälle" pro Tag?</div>
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('frequency', '1-2')">1-2 mal täglich</button>
+                    <button class="option-btn" onclick="selectOption('frequency', '3-5')">3-5 mal täglich</button>
+                    <button class="option-btn" onclick="selectOption('frequency', '5+')">Mehr als 5 mal täglich</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+                <div class="question-text">3. Hast du bereits Trainingsmethoden versucht?</div>
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('tried', 'no')">Nein, das ist mein erster Versuch</button>
+                    <button class="option-btn" onclick="selectOption('tried', 'yes')">Ja, aber ohne Erfolg</button>
+                    <button class="option-btn" onclick="selectOption('tried', 'partial')">Ja, mit teilweisem Erfolg</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question" data-question="4">
+                <div class="question-text">4. Wie viel Zeit kannst du täglich für das Training aufwenden?</div>
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('time', 'low')">Weniger als 15 Minuten</button>
+                    <button class="option-btn" onclick="selectOption('time', 'medium')">15-30 Minuten</button>
+                    <button class="option-btn" onclick="selectOption('time', 'high')">Mehr als 30 Minuten</button>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 30px;">
+                <button class="cta-button" onclick="previousQuestion()" style="background: #ccc; color: #333; width: 48%;">← Zurück</button>
+                <button class="cta-button" onclick="nextQuestion()" style="width: 48%;">Weiter →</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <h2>🎉 Dein personalisiertes Ergebnis</h2>
+            <div class="results-message" id="resultMessage">
+                Basierend auf deinen Antworten haben wir eine maßgeschneiderte Lösung für dich identifiziert...
+            </div>
+
+            <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                <h3 style="color: #1a3a52; margin-bottom: 15px;">Was du im System erhältst:</h3>
+                <ul style="text-align: left; color: #333; list-style: none;">
+                    <li>✓ Schritt-für-Schritt Video-Anleitung (7 Tage)</li>
+                    <li>✓ Checklisten und Trainingsplan</li>
+                    <li>✓ Häufig gestellte Fragen & Lösungen</li>
+                    <li>✓ Bonus: Notfall-Tipps für schwierige Fälle</li>
+                    <li>✓ 60-Tage Geld-zurück-Garantie</li>
+                </ul>
+            </div>
+
+            <p style="color: #666; margin-bottom: 20px; font-size: 16px;">
+                <strong>Nur heute:</strong> 85% Rabatt + Kostenlose Bonusmaterialien
+            </p>
+
+            <button class="cta-button" onclick="goToCheckout()" style="width: 100%; padding: 20px;">
+                🛒 Jetzt kaufen für nur €17,99 (statt €120)
+            </button>
+
+            <p style="color: #999; font-size: 12px; margin-top: 15px;">
+                Sichere Zahlung • 60-Tage Garantie • Sofortiger Zugriff
+            </p>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h3>⭐ Was Hundebesitzer sagen</h3>
+            
+            <div class="testimonial-item">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">"Nach nur 4 Tagen war mein Welpe zu 90% stubenrein! Dieses System funktioniert wirklich."</div>
+                <div class="testimonial-author">— Maria K., München</div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">"Ich habe alles versucht. Dieses System war die Lösung, die ich brauchte. Sehr empfohlen!"</div>
+                <div class="testimonial-author">— Thomas B., Berlin</div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">"Einfach, klar und effektiv. Mein Hund hat es verstanden, und ich auch!"</div>
+                <div class="testimonial-author">— Petra L., Hamburg</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 Stubenreinheit-System. Alle Rechte vorbehalten.</p>
+            <p>
+                <a href="#privacy">Datenschutz</a> | 
+                <a href="#terms">Nutzungsbedingungen</a> | 
+                <a href="#contact">Kontakt</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let totalQuestions = 4;
+        let quizAnswers = {};
+
+        // Timer Countdown
+        function startTimer() {
+            const endTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 horas
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        // Quiz Functions
+        function selectOption(category, value) {
+            quizAnswers[category] = value;
+            
+            // Visual feedback
+            const buttons = document.querySelectorAll('.quiz-question.active .option-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion++;
+                document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.add('active');
+                updateProgress();
+            } else if (currentQuestion === totalQuestions) {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion--;
+                document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showResults() {
+            document.querySelector('.quiz-section').style.display = 'none';
+            document.querySelector('.results-section').classList.add('active');
+
+            // Personalized message based on answers
+            let message = "Basierend auf deinen Antworten empfehlen wir unser vollständiges 7-Tage-System. ";
+            
+            if (quizAnswers.age === 'puppy') {
+                message += "Welpen lernen am schnellsten – mit unserem System sollte dein Welpe in 3-4 Tagen stubenrein sein.";
+            } else if (quizAnswers.frequency === '5+') {
+                message += "Mit häufigen Unfällen ist ein strukturiertes System essentiell. Unsere Methode hat sich in solchen Fällen als am effektivsten erwiesen.";
+            } else {
+                message += "Unser bewährtes System wird dir helfen, das Problem schnell und dauerhaft zu lösen.";
+            }
+
+            document.getElementById('resultMessage').textContent = message;
+            updateProgress();
+        }
+
+        function goToCheckout() {
+            // Replace with your Digistore24 affiliate link
+            window.location.href = 'https://www.digistore24.com/redir/YOUR_AFFILIATE_ID';
+        }
+
+        // Initialize
+        window.addEventListener('load', function() {
+            startTimer();
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
