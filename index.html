@@ -1,150 +1,1008 @@
 
 <!DOCTYPE html>
-<html lang="de">
+<html lang="from">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hund wird stubenrein – einfacher Ansatz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adestramento para fazer as necessidades no lugar certo em 7 dias – Adestramento online para cães</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::antes, *::depois {
+            margem: 0;
+            preenchimento: 0;
+            box-sized: caixa com borda;
+        }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-}
+        :raiz {
+            --primário: #1a1a2e;
+            --accent: #c8a96e;
+            --accent-light: #e8d5b0;
+            --bg: #f7f5f2;
+            --bg-white: #ffffff;
+            --texto-principal: #1a1a2e;
+            --texto silenciado: #6b6b7b;
+            --borda: #e2ddd6;
+            --raio: 4px;
+            --radius-lg: 8px;
+        }
 
-.container {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-}
+        html {
+            Comportamento de rolagem: suave;
+        }
 
-.box {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+        corpo {
+            família de fontes: 'Inter', sem serifa;
+            fundo: var(--bg);
+            cor: var(--texto-principal);
+            altura da linha: 1,65;
+            tamanho da fonte: 16px;
+        }
 
-h1 {
-    font-size: 24px;
-    color: #222;
-    text-align: center;
-}
+        /* ── BARRA DE ANÚNCIOS ── */
+        .announcement-bar {
+            fundo: var(--primário);
+            cor: #fff;
+            alinhamento do texto: centralizado;
+            preenchimento: 10px 20px;
+            tamanho da fonte: 13px;
+            espaçamento entre letras: 0,04em;
+            peso da fonte: 400;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 20px;
-}
+        .announcement-bar .timer-inline {
+            exibição: inline-flex;
+            alinhamento-itens: centro;
+            espaçamento: 6px;
+            peso da fonte: 600;
+            cor: var(--accent);
+            margem esquerda: 8px;
+        }
 
-.quiz-question {
-    margin-bottom: 20px;
-}
+        .timer-digit {
+            fundo: rgba(200,169,110,0.15);
+            borda: 1px sólida rgba(200,169,110,0.3);
+            preenchimento: 2px 7px;
+            raio da borda: 3px;
+            variante-da-fonte-numérica: tabular-nums;
+            largura mínima: 28px;
+            alinhamento do texto: centralizado;
+        }
 
-.option {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: white;
-    cursor: pointer;
-}
+        /* ── NÃO ── */
+        .não {
+            fundo: var(--bg-white);
+            borda inferior: 1px var sólido (--border);
+            preenchimento: 18px 40px;
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            justificar-conteúdo: centralizado;
+        }
 
-.option:hover {
-    background: #f0f0f0;
-}
+        .nav-logo {
+            família de fontes: 'Playfair Display', serifada;
+            tamanho da fonte: 22px;
+            peso da fonte: 700;
+            cor: var(--primary);
+            espaçamento entre letras: 0,06em;
+        }
 
-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    background: #2d5a7b;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-}
+        .nav-logo span {
+            cor: var(--accent);
+        }
 
-.result {
-    display: none;
-    text-align: center;
-}
-</style>
+        /* ── HERÓI ── */
+        .herói {
+            fundo: var(--bg-white);
+            preenchimento: 80px 20px 60px;
+            alinhamento do texto: centralizado;
+            borda inferior: 1px var sólido (--border);
+        }
+
+        .hero-eyebrow {
+            exibição: inline-block;
+            tamanho da fonte: 11px;
+            peso da fonte: 600;
+            espaçamento entre letras: 0,14em;
+            text-transform: maiúsculas;
+            cor: var(--accent);
+            margem-inferior: 20px;
+            preenchimento: 6px 16px;
+            borda: 1px sólida var(--accent-light);
+            raio da borda: 20px;
+            fundo: rgba(200,169,110,0.06);
+        }
+
+        .herói h1 {
+            família de fontes: 'Playfair Display', serifada;
+            tamanho da fonte: clamp(28px, 5vw, 48px);
+            peso da fonte: 700;
+            cor: var(--primary);
+            altura da linha: 1,2;
+            largura máxima: 700px;
+            margem: 0 auto 20px;
+        }
+
+        .hero-sub {
+            tamanho da fonte: 17px;
+            cor: var(--text-muted);
+            largura máxima: 520px;
+            margem: 0 auto 40px;
+            peso da fonte: 400;
+        }
+
+        .trust-row {
+            Exibir: flexível;
+            justificar-conteúdo: centralizado;
+            espaçamento: 32px;
+            flex-wrap: envolver;
+        }
+
+        .trust-item {
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            espaçamento: 8px;
+            tamanho da fonte: 13px;
+            cor: var(--text-muted);
+            peso da fonte: 500;
+        }
+
+        .trust-icon {
+            largura: 18px;
+            altura: 18px;
+            fundo: var(--accent);
+            raio-da-borda: 50%;
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            justificar-conteúdo: centralizado;
+            flex-shrink: 0;
+        }
+
+        .trust-icon svg {
+            largura: 10px;
+            altura: 10px;
+            preenchimento: nenhum;
+            acidente vascular cerebral: #fff;
+            Espessura do traço: 2,5;
+            limite da linha de traço: redondo;
+            junção-linha-de-traço: arredondada;
+        }
+
+        /* ── QUIZ WRAPPER ── */
+        .quiz-wrapper {
+            largura máxima: 680px;
+            margem: 60px automática;
+            preenchimento: 0 20px;
+        }
+
+        .section-label {
+            tamanho da fonte: 11px;
+            peso da fonte: 600;
+            espaçamento entre letras: 0,14em;
+            text-transform: maiúsculas;
+            cor: var(--accent);
+            margem-inferior: 8px;
+        }
+
+        .section-title {
+            família de fontes: 'Playfair Display', serifada;
+            tamanho da fonte: clamp(22px, 3vw, 30px);
+            cor: var(--primary);
+            margem-inferior: 8px;
+            altura da linha: 1,25;
+        }
+
+        .section-desc {
+            tamanho da fonte: 15px;
+            cor: var(--text-muted);
+            margem-inferior: 36px;
+        }
+
+        /* Progresso */
+        .progress-track {
+            altura: 3px;
+            fundo: var(--border);
+            raio-da-borda: 2px;
+            margem-inferior: 36px;
+            overflow: oculto;
+        }
+
+        .progress-fill {
+            altura: 100%;
+            fundo: var(--accent);
+            largura: 25%;
+            transição: largura 0,4s de facilidade;
+        }
+
+        .progress-label {
+            tamanho da fonte: 12px;
+            cor: var(--text-muted);
+            margem-inferior: 10px;
+            Exibir: flexível;
+            justify-content: espaço-entre;
+        }
+
+        /* Cartão de Quiz */
+        .quiz-card {
+            fundo: var(--bg-white);
+            borda: 1px var sólido (--border);
+            raio da borda: var(--radius-lg);
+            preenchimento: 40px 36px;
+        }
+
+        .quiz-question {
+            exibir: nenhum;
+        }
+
+        .quiz-question.active {
+            exibir: bloco;
+            animação: fadeUp 0.3s suavização;
+        }
+
+        @keyframes fadeUp {
+            de { opacidade: 0; transformação: translateY(10px); }
+            para { opacidade: 1; transformação: translateY(0); }
+        }
+
+        .question-text {
+            tamanho da fonte: 18px;
+            peso da fonte: 600;
+            cor: var(--primary);
+            margem-inferior: 24px;
+            altura da linha: 1,4;
+        }
+
+        .opções {
+            Exibir: flexível;
+            flex-direction: coluna;
+            espaçamento: 10px;
+        }
+
+        .botão-de-opção {
+            preenchimento: 14px 18px;
+            borda: var sólido de 1,5px (--border);
+            fundo: var(--bg);
+            raio da borda: var(--radius-lg);
+            cursor: ponteiro;
+            tamanho da fonte: 15px;
+            família de fontes: 'Inter', sem serifa;
+            peso da fonte: 400;
+            cor: var(--texto-principal);
+            transição: todos os 0,2s de facilidade;
+            alinhamento de texto: esquerda;
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            espaçamento: 12px;
+        }
+
+        .option-btn:hover {
+            cor-da-borda: var(--accent);
+            fundo: rgba(200,169,110,0.05);
+        }
+
+        .option-btn.selected {
+            cor-da-borda: var(--accent);
+            fundo: rgba(200,169,110,0.1);
+            cor: var(--primary);
+            peso da fonte: 500;
+        }
+
+        .indicador-de-opção {
+            largura: 20px;
+            altura: 20px;
+            borda: var sólido de 1,5px (--border);
+            raio-da-borda: 50%;
+            flex-shrink: 0;
+            transição: todos os 0,2s;
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            justificar-conteúdo: centralizado;
+        }
+
+        .option-btn.selected .option-indicator {
+            fundo: var(--accent);
+            cor-da-borda: var(--accent);
+        }
+
+        .option-btn.selected .option-indicator::after {
+            contente: '';
+            largura: 6px;
+            altura: 6px;
+            fundo: #fff;
+            raio-da-borda: 50%;
+        }
+
+        /* Botões de navegação */
+        .quiz-nav {
+            Exibir: flexível;
+            justify-content: espaço-entre;
+            alinhamento-itens: centro;
+            margem superior: 32px;
+            espaçamento: 12px;
+        }
+
+        .btn-back {
+            tamanho da fonte: 14px;
+            cor: var(--text-muted);
+            Contexto: nenhum;
+            fronteira: nenhuma;
+            cursor: ponteiro;
+            família de fontes: 'Inter', sem serifa;
+            peso da fonte: 500;
+            preenchimento: 10px 0;
+            transição: cor 0,2s;
+        }
+
+        .btn-back:hover:not(:disabled) {
+            cor: var(--primary);
+        }
+
+        .btn-back:desativado {
+            opacidade: 0,3;
+            cursor: não permitido;
+        }
+
+        .btn-next {
+            fundo: var(--primário);
+            cor: #fff;
+            fronteira: nenhuma;
+            preenchimento: 14px 32px;
+            raio da borda: var(--radius-lg);
+            tamanho da fonte: 15px;
+            peso da fonte: 600;
+            família de fontes: 'Inter', sem serifa;
+            cursor: ponteiro;
+            transição: todos os 0,2s de facilidade;
+            espaçamento entre letras: 0,02em;
+        }
+
+        .btn-next:hover {
+            fundo: #2d2d4e;
+            transformar: translateY(-1px);
+        }
+
+        .btn-next:ativo {
+            transformar: traduzirY(0);
+        }
+
+        /* ── RESULTADOS ── */
+        .seção-resultados {
+            exibir: nenhum;
+            animação: fadeUp 0.4s suavização;
+        }
+
+        .results-section.active {
+            exibir: bloco;
+        }
+
+        .result-card {
+            fundo: var(--bg-white);
+            borda: 1px var sólido (--border);
+            raio da borda: var(--radius-lg);
+            preenchimento: 40px 36px;
+            margem-inferior: 20px;
+        }
+
+        .result-eyebrow {
+            tamanho da fonte: 11px;
+            peso da fonte: 600;
+            espaçamento entre letras: 0,14em;
+            text-transform: maiúsculas;
+            cor: var(--accent);
+            margem-inferior: 12px;
+        }
+
+        .título-resultado {
+            família de fontes: 'Playfair Display', serifada;
+            tamanho da fonte: 26px;
+            cor: var(--primary);
+            margem-inferior: 16px;
+            altura da linha: 1,3;
+        }
+
+        .mensagem-resultado {
+            tamanho da fonte: 16px;
+            cor: var(--text-muted);
+            altura da linha: 1,7;
+            margem-inferior: 28px;
+            preenchimento: 20px;
+            fundo: var(--bg);
+            raio da borda: var(--radius-lg);
+            borda-esquerda: 3px sólida var(--accent);
+        }
+
+        .lista-de-recursos {
+            estilo de lista: nenhum;
+            Exibir: flexível;
+            flex-direction: coluna;
+            espaçamento: 12px;
+            margem-inferior: 32px;
+        }
+
+        .features-list li {
+            Exibir: flexível;
+            alinhamento-itens: início-flexível;
+            espaçamento: 12px;
+            tamanho da fonte: 15px;
+            cor: var(--texto-principal);
+        }
+
+        .feature-check {
+            largura: 20px;
+            altura: 20px;
+            fundo: var(--accent);
+            raio-da-borda: 50%;
+            flex-shrink: 0;
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            justificar-conteúdo: centralizado;
+            margem superior: 1px;
+        }
+
+        .feature-check svg {
+            largura: 10px;
+            altura: 10px;
+            preenchimento: nenhum;
+            acidente vascular cerebral: #fff;
+            Espessura do traço: 2,5;
+            limite da linha de traço: redondo;
+            junção-linha-de-traço: arredondada;
+        }
+
+        .cta-block {
+            alinhamento do texto: centralizado;
+        }
+
+        .cta-button {
+            exibição: inline-block;
+            fundo: var(--primário);
+            cor: #fff;
+            preenchimento: 18px 48px;
+            raio da borda: var(--radius-lg);
+            tamanho da fonte: 16px;
+            peso da fonte: 600;
+            família de fontes: 'Inter', sem serifa;
+            cursor: ponteiro;
+            fronteira: nenhuma;
+            transição: todos os 0,25s de suavização;
+            espaçamento entre letras: 0,03em;
+            largura: 100%;
+            decoração de texto: nenhuma;
+        }
+
+        .cta-button:hover {
+            fundo: #2d2d4e;
+            transformar: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26,26,46,0.18);
+        }
+
+        .cta-button:ativo {
+            transformar: traduzirY(0);
+        }
+
+        .cta-sub {
+            margem superior: 14px;
+            tamanho da fonte: 12px;
+            cor: var(--text-muted);
+            Exibir: flexível;
+            justificar-conteúdo: centralizado;
+            espaço: 20px;
+            flex-wrap: envolver;
+        }
+
+        .cta-sub span {
+            Exibir: flexível;
+            alinhamento-itens: centro;
+            espaçamento: 5px;
+        }
+
+        /* ── DEPOIMENTOS ── */
+        .seção-de-testemunhos {
+            largura máxima: 680px;
+            margem: 0 auto 60px;
+            preenchimento: 0 20px;
+        }
+
+        .grade de depoimentos {
+            Exibir: flexível;
+            flex-direction: coluna;
+            espaçamento: 16px;
+        }
+
+        .cartão-de-depoimento {
+            fundo: var(--bg-white);
+            borda: 1px var sólido (--border);
+            raio da borda: var(--radius-lg);
+            preenchimento: 28px 28px 24px;
+        }
+
+        .estrelas {
+            Exibir: flexível;
+            espaçamento: 3px;
+            margem-inferior: 12px;
+        }
+
+        .estrela {
+            largura: 14px;
+            altura: 14px;
+            fundo: var(--accent);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .texto-de-testemunho {
+            tamanho da fonte: 15px;
+            cor: var(--text-muted);
+            estilo-da-fonte: itálico;
+            altura da linha: 1,7;
+            margem-inferior: 14px;
+        }
+
+        .depoimento-autor {
+            tamanho da fonte: 13px;
+            peso da fonte: 600;
+            cor: var(--primary);
+        }
+
+        .depoimento-local {
+            tamanho da fonte: 12px;
+            cor: var(--text-muted);
+            peso da fonte: 400;
+        }
+
+        /* ── RODAPÉ ── */
+        .rodapé {
+            borda superior: 1px var sólido (--border);
+            fundo: var(--bg-white);
+            preenchimento: 32px 20px;
+            alinhamento do texto: centralizado;
+        }
+
+        .footer-logo {
+            família de fontes: 'Playfair Display', serifada;
+            tamanho da fonte: 18px;
+            peso da fonte: 700;
+            cor: var(--primary);
+            espaçamento entre letras: 0,06em;
+            margem-inferior: 12px;
+        }
+
+        .footer-logo span {
+            cor: var(--accent);
+        }
+
+        .footer-links {
+            Exibir: flexível;
+            justificar-conteúdo: centralizado;
+            espaço: 24px;
+            margem-inferior: 16px;
+            flex-wrap: envolver;
+        }
+
+        .footer-links a {
+            tamanho da fonte: 13px;
+            cor: var(--text-muted);
+            decoração de texto: nenhuma;
+            transição: cor 0,2s;
+        }
+
+        .footer-links a:hover {
+            cor: var(--primary);
+        }
+
+        .footer-copy {
+            tamanho da fonte: 12px;
+            cor: var(--text-muted);
+        }
+
+        /* ── DIVISOR ── */
+        .divisor-de-seção {
+            largura máxima: 680px;
+            margem: 0 auto 48px;
+            preenchimento: 0 20px;
+        }
+
+        .divider-line {
+            fronteira: nenhuma;
+            borda superior: 1px var sólido (--border);
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 600px) {
+            .nav { padding: 16px 20px; }
+            .hero { padding: 50px 20px 40px; }
+            .quiz-card, .result-card { padding: 28px 20px; }
+            .trust-row { gap: 16px; }
+            .quiz-nav { flex-direction: column-reverse; align-items: stretch; }
+            .btn-back { alinhamento de texto: centro; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <!-- Barra de anúncios -->
+    <div class="announcement-bar">
+        Oferta por tempo limitado — termina em
+        <span class="timer-inline">
+            <span class="timer-digit" id="hours">00</span>
+            :
+            <span class="timer-digit" id="minutes">00</span>
+            :
+            <span class="timer-digit" id="seconds">00</span>
+        </span>
+    </div>
 
-<div class="box">
-<h1>Warum wird Ihr Hund nicht stubenrein?</h1>
-<p class="subtitle">Beantworten Sie 3 kurze Fragen und erhalten Sie eine passende Lösung</p>
-</div>
+    <!-- Nenhum -->
+    <nav class="nav">
+        <div class="nav-logo">CHUVA CHOVENDO</div>
+    </nenhum>
 
-<div class="box" id="quiz">
+    <!-- Herói -->
+    <section class="hero">
+        <div class="hero-eyebrow">Adestramento para fazer as necessidades no lugar certo · Adestramento de cães</div>
+        <h1>Chega de poças d'água.<br>Seu cachorro estará adestrado para fazer as necessidades no lugar certo — em 7 dias.</h1>
+        Mais de 12.000 donos de cães na Alemanha já obtiveram resultados iniciais com o sistema de 7 dias, começando já no 3º dia.
+        <div class="trust-row">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                </div>
+                Mais de 12.000 donos de cães bem-sucedidos
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                </div>
+                Primeiros sucessos em 7 dias
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                </div>
+                Garantia de reembolso de 60 dias
+            </div>
+        </div>
+    </section>
 
-<div class="quiz-question">
-<p><b>1. Wie alt ist Ihr Hund?</b></p>
-<button class="option" onclick="next()">Welpe</button>
-<button class="option" onclick="next()">Junghund</button>
-<button class="option" onclick="next()">Erwachsen</button>
-</div>
+    <!-- Quiz -->
+    <div class="quiz-wrapper">
+        <div class="section-label">Seu plano pessoal</div>
+        <h2 class="section-title">Encontre sua solução individual</h2>
+        Responda a 4 perguntas rápidas — mostraremos qual programa é o mais adequado para você e seu cão.
 
-<div class="quiz-question" style="display:none;">
-<p><b>2. Wie oft passiert es?</b></p>
-<button class="option" onclick="next()">Selten</button>
-<button class="option" onclick="next()">Mehrmals pro Woche</button>
-<button class="option" onclick="next()">Täglich</button>
-</div>
+        <div class="progress-label">
+            <span id="progressText">Questão 1 de 4</span>
+            <span id="progressPct">25%</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
 
-<div class="quiz-question" style="display:none;">
-<p><b>3. Seit wann besteht das Problem?</b></p>
-<button class="option" onclick="showResult()">Kurze Zeit</button>
-<button class="option" onclick="showResult()">Einige Wochen</button>
-<button class="option" onclick="showResult()">Schon lange</button>
-</div>
+        <!-- Cartão de Quiz -->
+        <div class="quiz-card" id="quizCard">
 
-</div>
+            <!-- Q1 -->
+            <div class="quiz-question active" data-question="1">
+                Qual a idade do seu cachorro?
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('age','puppy', this)">
+                        <span class="option-indicator"></span>
+                        Filhote — menos de 6 meses
+                    </button>
+                    <button class="option-btn" onclick="selectOption('age','young', this)">
+                        <span class="option-indicator"></span>
+                        Junghund — 6 a 12 meses
+                    </button>
+                    <button class="option-btn" onclick="selectOption('age','adult', this)">
+                        <span class="option-indicator"></span>
+                        Cão adulto — com mais de 1 ano de idade
+                    </button>
+                </div>
+            </div>
 
-<div class="box result" id="result">
-<h2>Ihre Situation ist sehr häufig</h2>
-<p style="color:#555;">
-Viele Hundebesitzer machen unbewusst kleine Fehler im Training.
-Mit der richtigen Struktur kann Ihr Hund schrittweise lernen, das Verhalten zu ändern.
-</p>
+            <!-- Q2 -->
+            <div class="quiz-question" data-question="2">
+                Com que frequência ocorrem acidentes em casa?
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('frequência','1-2', this)">
+                        <span class="option-indicator"></span>
+                        1 a 2 vezes por semana
+                    </button>
+                    <button class="option-btn" onclick="selectOption('frequency','3-4', this)">
+                        <span class="option-indicator"></span>
+                        3 a 4 vezes por semana
+                    </button>
+                    <button class="option-btn" onclick="selectOption('frequency','5+', this)">
+                        <span class="option-indicator"></span>
+                        Diariamente ou várias vezes ao dia
+                    </button>
+                </div>
+            </div>
 
-<button onclick="redirect()">Lösung ansehen</button>
+            <!-- Q3 -->
+            <div class="quiz-question" data-question="3">
+                Há quanto tempo esse problema existe?
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('duration','new', this)">
+                        <span class="option-indicator"></span>
+                        Menos de 1 mês
+                    </button>
+                    <button class="option-btn" onclick="selectOption('duration','medium', this)">
+                        <span class="option-indicator"></span>
+                        1 a 3 meses
+                    </button>
+                    <button class="option-btn" onclick="selectOption('duration','long', this)">
+                        <span class="option-indicator"></span>
+                        Mais de 3 meses
+                    </button>
+                </div>
+            </div>
 
-<p style="font-size:12px;color:#888;margin-top:10px;">
-Informationen basieren auf allgemeinen Trainingserfahrungen.
-</p>
-</div>
+            <!-- Q4 ​​​​-->
+            <div class="quiz-question" data-question="4">
+                <div class="question-text">O que mais te incomoda?</div>
+                <div class="options">
+                    <button class="option-btn" onclick="selectOption('problem','carpet', this)">
+                        <span class="option-indicator"></span>
+                        O tapete e os móveis ficarão danificados.
+                    </button>
+                    <button class="option-btn" onclick="selectOption('problem','stress', this)">
+                        <span class="option-indicator"></span>
+                        O estresse e a frustração diários
+                    </button>
+                    <button class="option-btn" onclick="selectOption('problema','ambos', this)">
+                        <span class="option-indicator"></span>
+                        Ambos — não é mais possível usar.
+                    </button>
+                </div>
+            </div>
 
-</div>
+            <!-- Navegação -->
+            <div class="quiz-nav">
+                <button class="btn-back" id="prevBtn" onclick="previousQuestion()" disabled>← Voltar</button>
+                <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Continuar →</button>
+            </div>
+        </div>
 
-<script>
-let step = 0;
-const questions = document.querySelectorAll(".quiz-question");
+        <!-- Resultados -->
+        <div class="results-section" id="resultsSection">
+            <div class="result-card">
+                <div class="result-eyebrow">Seu resultado</div>
+                <h2 class="result-title">Seu plano personalizado de 7 dias está pronto.</h2>
 
-function next() {
-    questions[step].style.display = "none";
-    step++;
-    questions[step].style.display = "block";
-}
+                <div class="result-message" id="resultsMessage">
+                    <!-- Mensagem personalizada -->
+                </div>
 
-function showResult() {
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("result").style.display = "block";
-}
+                <ul class="features-list">
+                    <li>
+                        <div class="feature-check">
+                            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                        </div>
+                        Tutorial em vídeo passo a passo ao longo de 7 dias
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                        </div>
+                        Listas de verificação diárias e plano de treinamento estruturado
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                        </div>
+                        Perguntas frequentes e soluções de emergência
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                        </div>
+                        Bônus: Estratégias para casos particularmente difíceis.
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                        </div>
+                        Garantia de reembolso de 60 dias — sem perguntas.
+                    </li>
+                </ul>
 
-function redirect() {
-    window.location.href = "SEU_LINK_AQUI";
-}
-</script>
+                <div class="cta-block">
+                    <button class="cta-button" onclick="goToCheckout()">
+                        Iniciar meu programa agora →
+                    </button>
+                    <div class="cta-sub">
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="10" height="7" rx="1"/><path d="M4 4V3a2 2 0 0 1 4 0v1"/></svg>
+                            Pagamento seguro
+                        </span>
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+                            Garantia de 60 dias
+                        </span>
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="5"/><polyline points="6,3 6,6 8,8"/></svg>
+                            Acesso instantâneo
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Divisor -->
+    <div class="section-divider"><hr class="divider-line"></div>
+
+    <!-- Depoimentos -->
+    <div class="testimonials-section">
+        <div class="section-label">Relatórios de experiência</div>
+        <h2 class="section-title" style="margin-bottom: 32px;">O que nossos clientes dizem</h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="estrelas">
+                    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                </div>
+                <p class="testimonial-text">“Após 7 dias, os acidentes pararam. Nunca pensei que funcionaria tão rápido. Meu tapete está finalmente limpo novamente.”</p>
+                <div>
+                    <span class="testimonial-author">Maria K.</span>
+                    <span class="testimonial-location"> · Munique</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="estrelas">
+                    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                </div>
+                <p class="testimonial-text">“O estresse acabou. Meu filhote agora entende o que deve fazer. O sistema é claramente estruturado e muito fácil de implementar.”</p>
+                <div>
+                    <span class="testimonial-author">Thomas B.</span>
+                    <span class="testimonial-location"> · Hamburgo</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="estrelas">
+                    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                </div>
+                <p class="testimonial-text">“Finalmente, um sistema que realmente funciona. Notei as primeiras melhorias em apenas 3 dias. Recomendo sem dúvida.”</p>
+                <div>
+                    <span class="testimonial-author">Petra L.</span>
+                    <span class="testimonial-location"> · Berlim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-logo">CHUVA</span>
+        <div class="footer-links">
+            <a href»">Política de Privacidade</a>
+            <a href="#">Informações legais</a>
+            <a href="#">Contato</a>
+        </div>
+        © 2026 Adestramento de Cães Online · Este produto é distribuído pela Digistore24 e está protegido por uma garantia de reembolso de 60 dias.
+    </footer>
+
+    <script>
+        // Lógica do Quiz
+        seja currentQuestion = 1;
+        const totalQuestions = 4;
+        let quizAnswers = {};
+
+        função selectOption(category, value, el) {
+            quizAnswers[category] = valor;
+            const currentQ = document.querySelector('.quiz-question.active');
+            currentQ.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        função próximaPergunta() {
+            se (perguntaAtual < totalPerguntas) {
+                PerguntaAtual++;
+                mostrarPergunta(perguntaAtual);
+                atualizarNav();
+            } outro {
+                mostrarResultados();
+            }
+        }
+
+        função previousQuestion() {
+            se (perguntaAtual > 1) {
+                PerguntaAtual--;
+                mostrarPergunta(perguntaAtual);
+                atualizarNav();
+            }
+        }
+
+        função mostrarPergunta(n) {
+            document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+            document.querySelector(`[data-question="${n}"]`).classList.add('active');
+            atualizarProgresso(n);
+        }
+
+        função atualizarProgresso(n) {
+            const pct = Math.round((n / totalQuestions) * 100);
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressText').textContent = 'Questão ' + n + ' de ' + totalQuestions;
+            document.getElementById('progressPct').textContent = pct + '%';
+        }
+
+        função atualizarNav() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            prevBtn.disabled = currentQuestion === 1;
+            nextBtn.textContent = currentQuestion === totalQuestions ? 'Mostrar resultado →' : 'Próximo →';
+        }
+
+        função mostrarResultados() {
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+
+            let message = 'Com base nas suas respostas, o sistema de 7 dias é a solução ideal para você.';
+
+            se (quizAnswers.idade === 'filhote') {
+                mensagem += 'Os filhotes aprendem particularmente rápido durante essa fase — com o sistema certo, você notará as primeiras mudanças já no terceiro dia.';
+            } else if (quizAnswers.frequency === '5+') {
+                mensagem += 'Acidentes do dia a dia são estressantes, mas solucionáveis. Nosso sistema foi desenvolvido especificamente para casos difíceis e oferece resultados confiáveis ​​também nessas situações.'
+            } else if (quizAnswers.problem === 'carpet') {
+                mensagem += 'Seu tapete e seus móveis estarão protegidos. Com o plano de treinamento estruturado, você verá um progresso significativo em apenas alguns dias.';
+            } outro {
+                mensagem += 'Nosso programa comprovado guiará você e seu cão passo a passo durante todo o processo — de forma clara, eficaz e sem frustração.';
+            }
+
+            document.getElementById('resultsMessage').textContent = mensagem;
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        função irParaFinalizarCompra() {
+            window.location.href = 'https://www.digistore24.com/redir/382605/briansilvadarocha/';
+        }
+
+        // Lógica de Temporizador - Implementação Robusta
+        função initTimer() {
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            // Defina o horário de término para daqui a 1 hora
+            const duration = 60 * 60 * 1000; // 1 hora em ms
+            const endTime = new Date().getTime() + duration;
+
+            função atualizarExibição() {
+                const now = new Date().getTime();
+                const diff = endTime - now;
+
+                se (diferença <= 0) {
+                    hoursEl.textContent = "00";
+                    minutesEl.textContent = "00";
+                    secondsEl.textContent = "00";
+                    clearInterval(timerInterval);
+                    retornar;
+                }
+
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / (1000 * 60)) % 60);
+                const s = Math.floor((diff / 1000) % 60);
+
+                horasEl.textContent = String(h).padStart(2, '0');
+                minutosEl.textContent = String(m).padStart(2, '0');
+                segundosEl.textContent = String(s).padStart(2, '0');
+            }
+
+            // Executar uma vez imediatamente
+            atualizarExibir();
+            // Intervalo inicial
+            const timerInterval = setInterval(updateDisplay, 1000);
+        }
+
+        // Garanta que o cronômetro inicie imediatamente
+        se (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTimer);
+        } outro {
+            initTimer();
+        }
+    </script>
 </body>
 </html>
-💡 O QUE VOCÊ FEZ CERTO (E AGO
