@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS INLINE PARA GARANTIR CARREGAMENTO NA VERCEL */
         *, *::antes, *::depois {
             margem: 0;
             preenchimento: 0;
@@ -885,7 +886,7 @@
     </footer>
 
     <script>
-        // Lógica do Quiz
+        /* JS INLINE PARA GARANTIR FUNCIONAMENTO NA VERCEL */
         seja currentQuestion = 1;
         const totalQuestions = 4;
         let quizAnswers = {};
@@ -893,8 +894,10 @@
         função selectOption(category, value, el) {
             quizAnswers[category] = valor;
             const currentQ = document.querySelector('.quiz-question.active');
-            currentQ.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
-            el.classList.add('selected');
+            se(currentQ) {
+                currentQ.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+                el.classList.add('selected');
+            }
         }
 
         função próximaPergunta() {
@@ -917,30 +920,38 @@
 
         função mostrarPergunta(n) {
             document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
-            document.querySelector(`[data-question="${n}"]`).classList.add('active');
+            const targetQ = document.querySelector(`[data-question="${n}"]`);
+            if(targetQ) targetQ.classList.add('active');
             atualizarProgresso(n);
         }
 
         função atualizarProgresso(n) {
             const pct = Math.round((n / totalQuestions) * 100);
-            document.getElementById('progressFill').style.width = pct + '%';
-            document.getElementById('progressText').textContent = 'Questão ' + n + ' de ' + totalQuestions;
-            document.getElementById('progressPct').textContent = pct + '%';
+            const fill = document.getElementById('progressFill');
+            const txt = document.getElementById('progressText');
+            const pctTxt = document.getElementById('progressPct');
+            se(preencher) preencher.estilo.largura = pct + '%';
+            if(txt) txt.textContent = 'Pergunta ' + n + ' de ' + totalQuestions;
+            if(pctTxt) pctTxt.textContent = pct + '%';
         }
 
         função atualizarNav() {
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            prevBtn.disabled = currentQuestion === 1;
-            nextBtn.textContent = currentQuestion === totalQuestions ? 'Mostrar resultado →' : 'Próximo →';
+            if(prevBtn) prevBtn.disabled = currentQuestion === 1;
+            if(nextBtn) nextBtn.textContent = currentQuestion === totalQuestions ? 'Mostrar resultado →' : 'Próximo →';
         }
 
         função mostrarResultados() {
-            document.getElementById('quizCard').style.display = 'none';
-            document.getElementById('resultsSection').classList.add('active');
+            const quizCard = document.getElementById('quizCard');
+            const resultsSec = document.getElementById('resultsSection');
+            if(quizCard) quizCard.style.display = 'none';
+            se(resultadosSec) {
+                resultsSec.classList.add('ativo');
+                resultsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
             let message = 'Com base nas suas respostas, o sistema de 7 dias é a solução ideal para você.';
-
             se (quizAnswers.idade === 'filhote') {
                 mensagem += 'Os filhotes aprendem particularmente rápido durante essa fase — com o sistema certo, você notará as primeiras mudanças já no terceiro dia.';
             } else if (quizAnswers.frequency === '5+') {
@@ -951,22 +962,23 @@
                 mensagem += 'Nosso programa comprovado guiará você e seu cão passo a passo durante todo o processo — de forma clara, eficaz e sem frustração.';
             }
 
-            document.getElementById('resultsMessage').textContent = mensagem;
-            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const msgEl = document.getElementById('resultsMessage');
+            if(msgEl) msgEl.textContent = mensagem;
         }
 
         função irParaFinalizarCompra() {
             window.location.href = 'https://www.digistore24.com/redir/382605/briansilvadarocha/';
         }
 
-        // Lógica de Temporizador - Implementação Robusta
         função initTimer() {
             const hoursEl = document.getElementById('hours');
             const minutesEl = document.getElementById('minutes');
             const secondsEl = document.getElementById('seconds');
             
-            // Defina o horário de término para daqui a 1 hora
-            const duration = 60 * 60 * 1000; // 1 hora em ms
+            if(!hoursEl || !minutesEl || !secondsEl) return;
+
+            // Temporizador de 1 hora (3600 segundos)
+            const duração = 60 * 60 * 1000;
             const endTime = new Date().getTime() + duration;
 
             função atualizarExibição() {
@@ -990,18 +1002,16 @@
                 segundosEl.textContent = String(s).padStart(2, '0');
             }
 
-            // Executar uma vez imediatamente
             atualizarExibir();
-            // Intervalo inicial
             const timerInterval = setInterval(updateDisplay, 1000);
         }
 
-        // Garanta que o cronômetro inicie imediatamente
-        se (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTimer);
-        } outro {
+        // Inicialização garantida
+        janela.onload = função() {
             initTimer();
-        }
+            atualizarNav();
+            atualizarProgresso(1);
+        };
     </script>
 </body>
 </html>
