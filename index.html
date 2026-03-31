@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stubenreinheit in 7 Tagen – Premium Hundetraining</title>
+    <title>Stubenreinheit – Premium Hundetraining</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* DESIGN PREMIUM: AZUL PROFUNDO + DOURADO/AMARELO */
         :root {
-            --primary: #1a3a52; /* Azul Profundo */
-            --accent: #ffb100;  /* Amarelo/Dourado Vibrante */
+            --primary: #1a3a52;
+            --accent: #ffb100;
             --bg: #f4f7f9;
             --white: #ffffff;
             --text: #2d3436;
@@ -23,7 +22,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        /* Banner de Oferta */
         .top-bar { 
             background: linear-gradient(90deg, var(--primary), #2c5270); 
             color: #fff; 
@@ -47,7 +45,6 @@
             box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
         }
 
-        /* Hero Section */
         header { 
             background: var(--white); 
             padding: 60px 20px; 
@@ -55,7 +52,6 @@
             border-bottom: 1px solid var(--border);
             position: relative;
         }
-        /* Ícones de patinhas decorativas */
         header::before {
             content: '🐾';
             position: absolute;
@@ -89,7 +85,6 @@
             margin: 0 auto 30px; 
         }
 
-        /* Trust Badges */
         .badges {
             display: flex;
             justify-content: center;
@@ -107,7 +102,6 @@
         }
         .badge svg { width: 18px; height: 18px; fill: var(--accent); }
 
-        /* Quiz Container */
         .container { max-width: 700px; margin: 50px auto; padding: 0 20px; }
         .card { 
             background: var(--white); 
@@ -123,7 +117,6 @@
 
         h2 { font-size: 22px; margin-bottom: 25px; color: var(--primary); text-align: center; }
         
-        /* Opções do Quiz */
         .opt { 
             display: flex;
             align-items: center;
@@ -144,7 +137,6 @@
         .opt.sel { border-color: var(--accent); background: #fffdf5; box-shadow: 0 5px 15px rgba(255, 177, 0, 0.1); }
         .opt-icon { margin-right: 15px; font-size: 20px; }
 
-        /* Botões de Navegação */
         .nav-btns { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
         .btn { 
             padding: 15px 30px; 
@@ -170,7 +162,6 @@
         }
         .btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none !important; }
 
-        /* Resultados */
         #res { display: none; text-align: center; }
         #res.active { display: block; animation: fadeIn 0.6s ease; }
         .res-msg { 
@@ -203,12 +194,10 @@
         }
         .cta:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(255, 177, 0, 0.4); }
         
-        /* Footer */
         footer { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 14px; background: #fff; border-top: 1px solid var(--border); }
         footer a { color: var(--primary); font-weight: 600; margin: 0 15px; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
-        /* Responsividade */
         @media (max-width: 600px) {
             .card { padding: 25px 20px; }
             h1 { font-size: 28px; }
@@ -220,24 +209,24 @@
 </head>
 <body>
 
-    <div class="top-bar">🔥 Limitiertes Angebot — endet in: <span class="timer" id="t">00:59:59</span></div>
+    <div class="top-bar">🔥 Begrenzter Zugang — verfügbar für: <span class="timer" id="t">00:59:59</span></div>
 
     <header>
-        <h1>Schluss mit Pfützen. 🐾<br>Dein Hund wird stubenrein — in 7 Tagen.</h1>
-        <p class="sub">Über 12.000 Hundebesitzer in Deutschland vertrauen bereits auf unser Premium-System.</p>
+        <h1>Macht dein Hund immer wieder in die Wohnung? 🐾<br>Dann liegt es oft nicht am Hund allein.</h1>
+        <p class="sub">Viele Hundebesitzer suchen nach einer klaren, einfachen Methode, um Unfälle zuhause besser zu verstehen und das Verhalten Schritt für Schritt zu verändern.</p>
         
         <div class="badges">
             <div class="badge">
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                12.000+ Erfolgsgeschichten
+                Klare Schritt-für-Schritt-Struktur
             </div>
             <div class="badge">
                 <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Erste Erfolge in 7 Tagen
+                Für Welpen und erwachsene Hunde
             </div>
             <div class="badge">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                60-Tage Garantie
+                Flexibel online abrufbar
             </div>
         </div>
     </header>
@@ -251,16 +240,16 @@
                 <button class="opt" onclick="sel('age','a',this)"><span class="opt-icon">🐕‍🦺</span> Erwachsener Hund (über 1 Jahr)</button>
             </div>
             <div class="q" data-q="2">
-                <h2>2. Wie oft passieren Unfälle? 🏠</h2>
-                <button class="opt" onclick="sel('f','1',this)"><span class="opt-icon">💧</span> 1-2 Mal pro Woche</button>
-                <button class="opt" onclick="sel('f','3',this)"><span class="opt-icon">⚠️</span> 3-4 Mal pro Woche</button>
-                <button class="opt" onclick="sel('f','5',this)"><span class="opt-icon">🚨</span> Täglich / Mehrmals täglich</button>
+                <h2>2. Wie oft passieren Unfälle zuhause? 🏠</h2>
+                <button class="opt" onclick="sel('f','1',this)"><span class="opt-icon">💧</span> Eher selten</button>
+                <button class="opt" onclick="sel('f','3',this)"><span class="opt-icon">⚠️</span> Mehrmals pro Woche</button>
+                <button class="opt" onclick="sel('f','5',this)"><span class="opt-icon">🚨</span> Fast täglich</button>
             </div>
             <div class="q" data-q="3">
-                <h2>3. Was belastet dich am meisten? 💔</h2>
-                <button class="opt" onclick="sel('p','c',this)"><span class="opt-icon">🛋️</span> Beschädigte Teppiche/Möbel</button>
-                <button class="opt" onclick="sel('p','s',this)"><span class="opt-icon">😰</span> Stress und Frustration</button>
-                <button class="opt" onclick="sel('p','b',this)"><span class="opt-icon">💥</span> Beides ist unerträglich</button>
+                <h2>3. Was ist im Alltag gerade am schwierigsten? 💬</h2>
+                <button class="opt" onclick="sel('p','c',this)"><span class="opt-icon">🛋️</span> Sauberkeit in der Wohnung</button>
+                <button class="opt" onclick="sel('p','s',this)"><span class="opt-icon">😰</span> Unsicherheit beim Training</button>
+                <button class="opt" onclick="sel('p','b',this)"><span class="opt-icon">💥</span> Beides zusammen</button>
             </div>
             <div class="nav-btns">
                 <button class="btn btn-prev" id="pb" onclick="go(-1)" disabled>Zurück</button>
@@ -269,10 +258,10 @@
         </div>
 
         <div class="card" id="res">
-            <h2 style="color:var(--primary)">🎯 Dein persönlicher Plan ist fertig!</h2>
+            <h2 style="color:var(--primary)">Dein nächster sinnvoller Schritt</h2>
             <div class="res-msg" id="rm">Analysiere Antworten...</div>
-            <button class="cta" onclick="goOut()">JETZT PROGRAMM STARTEN →</button>
-            <p style="font-size:12px; margin-top:20px; color:var(--muted); font-weight:600;">✅ Sofortiger Zugriff • ✅ Sichere Zahlung • ✅ 60-Tage Garantie</p>
+            <button class="cta" onclick="goOut()">LÖSUNG ANSEHEN →</button>
+            <p style="font-size:12px; margin-top:20px; color:var(--muted); font-weight:600;">✅ Online verfügbar • ✅ Klar erklärt • ✅ Sofort abrufbar</p>
         </div>
     </div>
 
@@ -295,7 +284,6 @@
         }
 
         function go(d) {
-            // Validação: obrigatório selecionar uma opção
             const activeQ = document.querySelector(`.q[data-q="${cur}"]`);
             if (d > 0 && !activeQ.querySelector('.opt.sel')) {
                 alert("Bitte wählen Sie eine Option aus.");
@@ -316,10 +304,17 @@
             document.getElementById('quiz').style.display = 'none';
             document.getElementById('res').classList.add('active');
             
-            let m = "Hervorragend! Basierend auf deinen Antworten ist unser Premium 7-Tage-System perfekt für dich geeignet. ";
-            if(ans.age === 'p') m += "Welpen lernen in dieser Phase extrem schnell – wir zeigen dir, wie dein Welpe in Rekordzeit stubenrein wird!";
-            else if(ans.f === '5') m += "Selbst bei täglichen Unfällen bietet unser System die nötige Struktur, um das Problem dauerhaft zu lösen.";
-            else m += "Bereits nach wenigen Tagen wirst du eine deutliche Verbesserung und weniger Stress im Alltag spüren!";
+            let m = "Basierend auf deinen Antworten passt ein strukturierter Trainingsansatz gut zu deiner aktuellen Situation. ";
+
+            if(ans.age === 'p') {
+                m += "Gerade bei jungen Hunden ist eine klare Routine oft entscheidend, damit sie schneller verstehen, wo sie sich lösen sollen.";
+            } else if(ans.f === '5') {
+                m += "Wenn Unfälle sehr häufig passieren, hilft meist kein weiteres Rätselraten, sondern ein nachvollziehbarer Ablauf mit klaren nächsten Schritten.";
+            } else if(ans.p === 's') {
+                m += "Viele Hundebesitzer sind nicht am Einsatz gescheitert, sondern daran, dass ihnen ein klarer Trainingsplan für zuhause gefehlt hat.";
+            } else {
+                m += "Oft sind es kleine, unbewusste Fehler im Alltag, die das Problem verlängern. Eine einfache Methode kann helfen, das Verhalten besser zu lenken.";
+            }
             
             document.getElementById('rm').innerText = m;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -329,7 +324,6 @@
             window.location.href = 'https://www.digistore24.com/redir/382605/briansilvadarocha/'; 
         }
 
-        // Timer 1h Robusto
         function startT() {
             let s = 3600;
             const tEl = document.getElementById('t');
